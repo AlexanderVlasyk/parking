@@ -1,0 +1,15 @@
+<div *ngIf="!loading">
+  <div class="parking-list">
+    <h4>
+      Welcome to {{ appTitle }}!
+    </h4>
+    <ul class="parking">
+      <li *ngFor="let garage of garagesService.garages | async" [class.active]="garage.state">
+        {{ garage  }}
+      </li>
+    </ul>
+  </div>
+</div>
+<div *ngIf="loading">
+  Loading....
+</div>

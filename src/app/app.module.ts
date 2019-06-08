@@ -2,15 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-
+import { ParkingListComponent } from './parking-list/parking-list.component';
+import { MapComponent } from './map/map.component';
+import { GaragesService } from './shared/garages.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ParkingListComponent,
+    MapComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [GaragesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
