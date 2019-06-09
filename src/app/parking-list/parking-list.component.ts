@@ -7,14 +7,17 @@ import { GaragesService } from '../shared/garages.service';
   styleUrls: ['./parking-list.component.scss']
 })
 export class ParkingListComponent implements OnInit {
-
+  appTitle = 'parking';
   private loading: boolean= true;
+
+  parking;
 
   constructor(private garagesService: GaragesService) { }
   ngOnInit() {
-    this.garagesService.fetchGarages().subscribe(()=>{
-      this.loading= false;
-    })
+    this.garagesService.fetchGarages().subscribe((res)=>{
+      console.log(res);
+      this.parking = res.features;
+    });
   }
 
 }

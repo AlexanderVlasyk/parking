@@ -7,6 +7,8 @@ import { MapComponent } from './map/map.component';
 import { GaragesService } from './shared/garages.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot()
   ],
   providers: [GaragesService],
   bootstrap: [AppComponent]
