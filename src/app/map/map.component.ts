@@ -26,11 +26,26 @@ import { AgmCoreModule } from '@agm/core';
 })
 
 export class MapComponent implements OnInit {
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  lat: string = '';
+  lng: string = '';
+
+  markers;
+
+  location: Object;
+
   constructor(private mapService: MapService) { }
 
   ngOnInit() {
+    // this.map.getLocation().subscribe(garage => {
+    //   console.log(garage);
+    //   this.lat = garage.geometry.coordinates[0];
+    //   this.lng = garage.geometry.coordinates[1];
+    // })
+
+    this.mapService.getLocation().subscribe((des)=>{
+      console.log(des);
+      this.markers = des.features;
+    });
   }
 
 }
